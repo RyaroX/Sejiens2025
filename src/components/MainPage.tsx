@@ -14,7 +14,7 @@ const GalleryImage = ({ src, href }: { src: string; href?: string | null }) => {
       <img
         src={src} 
         alt="Sējiens pasākuma bilde"
-        className="w-full h-auto transition-transform duration-300 group-hover:scale-110"
+        className="w-full h-auto transition-transform duration-300"
       />
     </div>
   );

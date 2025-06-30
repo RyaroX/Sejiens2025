@@ -87,22 +87,29 @@ function PieteiktiesPage() {
       {/* Veiksmīgas reģistrācijas ekrāns, kas pārklāj visu lapu */}
       <div 
         className={`fixed inset-0 bg-[#1A0F2A] z-50 flex items-center justify-center p-4 transition-opacity duration-700 ease-in-out ${isSubmitted ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-      >
-        <div 
-          className={`text-center transition-opacity duration-1000 ease-in ${showSuccessContent ? 'opacity-100' : 'opacity-0'}`}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#A1F82A]">
-            Veiksmīgi reģistrēts!
-          </h2>
-          <p className="mt-4 text-lg text-[#E0E0E0]/80">
-            Paldies! Tuvākajā laikā ar Jums sazināsimies.
-          </p>
+        <div 
+            className={`text-center transition-opacity duration-1000 ease-in ${showSuccessContent ? 'opacity-100' : 'opacity-0'}`}
+        >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#A1F82A]">
+                Veiksmīgi reģistrēts!
+            </h2>
+            <p className="mt-4 text-lg text-[#E0E0E0]/80">
+                Paldies! Tuvākajā laikā ar Jums sazināsimies.
+            </p>
+            <Link 
+                to="/"
+                className="mt-[10vh] inline-flex items-center text-[#A1F82A] hover:text-white transition-colors duration-300 group"
+            >
+                <ArrowLeft size={20} className="mr-2 transition-transform group-hover:-translate-x-1" />
+                <span className="font-semibold group-hover:underline">Atpakaļ uz sākumu</span>
+            </Link>
         </div>
       </div>
       
       {/* Formas konteiners, kam tiks piemērota fade-out animācija */}
       <div 
-        className={`relative w-full max-w-2xl transition-opacity duration-700 ease-in-out ${isSubmitted ? 'opacity-0' : 'opacity-100'}`}
+        className={`relative w-full max-w-2xl transition-opacity duration-700 ease-in-out mt-[4vh] ${isSubmitted ? 'opacity-0' : 'opacity-100'}`}
       >
         <Link 
           to="/"
@@ -114,9 +121,9 @@ function PieteiktiesPage() {
         
         <div className="bg-black/20 p-8 md:p-12 rounded-2xl shadow-2xl shadow-[#7D26C9]/20 border border-white/10">
           <div className="text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-[#A1F82A] tracking-tight">
+            <div className="text-3xl md:text-4xl font-extrabold text-[#A1F82A] tracking-tight">
               Reģistrācija
-            </h1>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
