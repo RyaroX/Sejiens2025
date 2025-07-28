@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Single Page App Redirect</title>
+    <script type="text/javascript">
+      // Get the current path from the URL.
+      var path = window.location.pathname;
+
+      // Read the path from session storage if it exists.
+      var storedPath = sessionStorage.getItem('path');
+      sessionStorage.removeItem('path');
+
+      // If the stored path is the same as the current one, it means we are in a redirect loop.
+      // In that case, redirect to the homepage.
+      if (storedPath === path) {
+        window.location.replace(window.location.origin);
+      } else {
+        // Store the current path in session storage.
+        sessionStorage.setItem('path', path);
+        // Redirect to the root of the site, passing the original path as a query parameter.
+        // Your React app can then read this parameter and navigate to the correct route.
+        // Note: This example uses a simple redirect to the root. A more sophisticated
+        // setup in your React app would read the query string to restore the route.
+        // For many apps, just redirecting to the homepage is sufficient.
+        // A common pattern is to redirect to index.html and let client-side routing handle it.
+        window.location.replace(window.location.origin);
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
